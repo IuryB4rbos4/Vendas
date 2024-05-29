@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 
 import com.vendas.dto.ClientePostRequestDTO;
 import com.vendas.model.Cliente;
-import com.vendas.repository.ClienteRepositoyry;
+import com.vendas.repository.ClienteRepository;
 
 @Service
 public class ClienteV1CastraService implements ClienteCadastraService {
 
     @Autowired
-    ClienteRepositoyry clienteRepositoyry;
+    ClienteRepository clienteRepositoyry;
 
     @Autowired
     ModelMapper modelMapper;
