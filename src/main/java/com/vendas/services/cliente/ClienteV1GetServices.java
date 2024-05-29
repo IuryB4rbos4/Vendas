@@ -9,6 +9,8 @@ import com.vendas.exception.ClienteNaoExisteException;
 import com.vendas.model.Cliente;
 import com.vendas.repository.ClienteRepository;
 
+import java.util.Collection;
+
 @Service
 public class ClienteV1GetServices implements ClienteGetServices {
 
@@ -26,8 +28,8 @@ public class ClienteV1GetServices implements ClienteGetServices {
 
     @Override
     public ClienteGetDTO getClienteName(String name) {
-        Cliente currentCliente = clienteRepository.clienteFindByName(name);
-        if(currentCliente == null){
+        Collection<Cliente> currentCliente = clienteRepository.clienteFindByName(name);
+        if(currentCliente.isEmpty()){
             throw new ClienteNaoExisteException();
         }
         return modelMapper.map(currentCliente, ClienteGetDTO.class);
