@@ -1,9 +1,9 @@
 package com.vendas.services.cliente;
 
-import com.vendas.dto.ClienteGetDTO;
+import com.vendas.dto.ClienteGetResponseDTO;
 
 public interface ClienteGetServices {
-    public ClienteGetDTO getClienteId(Long id);
-    public ClienteGetDTO getClienteName(String name);
-    public ClienteGetDTO getClienteEmail(String email);
+    public ClienteGetResponseDTO getClienteId(Long id);
+    public ClienteGetResponseDTO getClienteName(String name);
+    public ClienteGetResponseDTO getClienteEmail(String email);
 }

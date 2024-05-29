@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClienteGetDTO {
+public class ClienteGetResponseDTO {
 
     @JsonProperty("id")
     @NotNull
