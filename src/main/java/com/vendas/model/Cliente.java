@@ -1,10 +1,5 @@
 package com.vendas.model;
-
-import org.hibernate.annotations.NotFound;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import jakarta.annotation.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,7 +22,6 @@ public class Cliente {
     @Column(name = "pk_id_cliente")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-
 
     @JsonProperty("Name")
     @Column(nullable = false, name = "desc_name")
