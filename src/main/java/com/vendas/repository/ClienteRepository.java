@@ -5,6 +5,6 @@ import com.vendas.model.Cliente;
 import java.util.Collection;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{   
-    public Collection<Cliente> clienteFindByName(String name);
-    public Cliente clienteFindByEmail(String email);
+    public Collection<Cliente> findByName(String name);
+    public Cliente findByEmail(String email);
 }

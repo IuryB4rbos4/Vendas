@@ -53,13 +53,13 @@ public class ClienteController {
         return ResponseEntity.status(HttpStatus.OK).body(clienteGetServices.getClienteId(id));
     }
 
-    @GetMapping("/clienteId/{name}")
+    @GetMapping("/clienteId/name/{name}")
     @Operation(summary = "Buscar", description = "Metodo para buscar um cliente pelo name", tags = "Cliente")
     public ResponseEntity<?> getClienteName(@PathVariable("name") String name) {
         return ResponseEntity.status(HttpStatus.OK).body(clienteGetServices.getClienteName(name));
     }
 
-    @GetMapping("/clienteId/{email}")
+    @GetMapping("/clienteId/email/{email}")
     @Operation(summary = "Buscar", description = "Metodo para buscar um cliente pelo email", tags = "Cliente")
     public ResponseEntity<?> getClienteEmail(@PathVariable("email") String email) {
         return ResponseEntity.status(HttpStatus.OK).body(clienteGetServices.getClienteEmail(email));

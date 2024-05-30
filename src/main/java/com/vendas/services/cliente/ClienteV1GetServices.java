@@ -9,7 +9,9 @@ import com.vendas.exception.ClienteNaoExisteException;
 import com.vendas.model.Cliente;
 import com.vendas.repository.ClienteRepository;
 
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Service
 public class ClienteV1GetServices implements ClienteGetServices {
@@ -27,17 +29,23 @@ public class ClienteV1GetServices implements ClienteGetServices {
     }
 
     @Override
-    public ClienteGetResponseDTO getClienteName(String name) {
-        Collection<Cliente> currentCliente = clienteRepository.clienteFindByName(name);
+    public List<ClienteGetResponseDTO> getClienteName(String name) {
+        List<Cliente> currentCliente = (List<Cliente>) clienteRepository.findByName(name);
         if(currentCliente.isEmpty()){
             throw new ClienteNaoExisteException();
         }
-        return modelMapper.map(currentCliente, ClienteGetResponseDTO.class);
+        @SuppressWarnings({ "rawtypes", "unchecked" })
+        List<ClienteGetResponseDTO> clienteGetResponseDTOs = new ArrayList();
+        for(int i = 0; i < currentCliente.size(); i++){
+            clienteGetResponseDTOs.add(modelMapper.map(currentCliente.remove(i), ClienteGetResponseDTO.class));
+        }
+        
+        return clienteGetResponseDTOs;
     }
 
     @Override
     public ClienteGetResponseDTO getClienteEmail(String email) {
-        Cliente currentCliente = clienteRepository.clienteFindByEmail(email);
+        Cliente currentCliente = clienteRepository.findByEmail(email);
         if(currentCliente == null){
             throw new ClienteNaoExisteException();
         }
