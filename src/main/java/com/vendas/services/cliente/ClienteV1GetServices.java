@@ -51,5 +51,16 @@ public class ClienteV1GetServices implements ClienteGetServices {
         }
         return modelMapper.map(currentCliente, ClienteGetResponseDTO.class);
     }
+
+    @Override
+    public List<ClienteGetResponseDTO> getClienteAll() {
+        List<Cliente> clientes = clienteRepository.findAll();
+        List<ClienteGetResponseDTO> clienteGetResponseDTOs = new ArrayList();
+        for(int i = 0; i < clientes.size(); i++){
+            clienteGetResponseDTOs.add(modelMapper.map(clientes.remove(i), ClienteGetResponseDTO.class));
+        }
+        
+        return clienteGetResponseDTOs;
+    }
     
 }

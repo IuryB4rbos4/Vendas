@@ -1,5 +1,7 @@
 package com.vendas.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vendas.dto.ClienteGetResponseDTO;
 import com.vendas.dto.ClientePostRequestDTO;
 import com.vendas.dto.ClientePutRequestDTO;
 import com.vendas.services.cliente.ClienteCadastraService;
@@ -63,6 +66,12 @@ public class ClienteController {
     @Operation(summary = "Buscar", description = "Metodo para buscar um cliente pelo email", tags = "Cliente")
     public ResponseEntity<?> getClienteEmail(@PathVariable("email") String email) {
         return ResponseEntity.status(HttpStatus.OK).body(clienteGetServices.getClienteEmail(email));
+    }
+
+    @GetMapping("/clientes")
+    @Operation(summary = "Buscar", description = "Metodo para buscar todos os clientes", tags = "Cliente")
+    public ResponseEntity<List<ClienteGetResponseDTO>> getClienteAll(){
+        return ResponseEntity.status(HttpStatus.OK).body(clienteGetServices.getClienteAll());
     }
 
     @PutMapping("/updateClienteId/{id}")
