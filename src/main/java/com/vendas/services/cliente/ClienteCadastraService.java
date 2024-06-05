@@ -1,7 +1,7 @@
 package com.vendas.services.cliente;
 
-import com.vendas.dto.ClientePostRequestDTO;
-import com.vendas.model.Cliente;
+import com.vendas.domain.dto.cliente.ClientePostRequestDTO;
+import com.vendas.domain.model.Cliente;
 
 @FunctionalInterface
 public interface ClienteCadastraService {

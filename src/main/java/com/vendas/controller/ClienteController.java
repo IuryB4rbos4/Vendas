@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vendas.dto.ClienteGetResponseDTO;
-import com.vendas.dto.ClientePostRequestDTO;
-import com.vendas.dto.ClientePutRequestDTO;
+import com.vendas.domain.dto.cliente.ClienteGetResponseDTO;
+import com.vendas.domain.dto.cliente.ClientePostRequestDTO;
+import com.vendas.domain.dto.cliente.ClientePutRequestDTO;
 import com.vendas.services.cliente.ClienteCadastraService;
 import com.vendas.services.cliente.ClienteDeleteService;
 import com.vendas.services.cliente.ClienteGetServices;
@@ -31,16 +31,16 @@ import jakarta.validation.Valid;
 public class ClienteController {
 
     @Autowired
-    ClienteCadastraService clienteCadastraService;
+    private ClienteCadastraService clienteCadastraService;
 
     @Autowired
-    ClienteGetServices clienteGetServices;
+    private ClienteGetServices clienteGetServices;
 
     @Autowired
-    ClienteUpdateService clienteUpdateService;
+    private ClienteUpdateService clienteUpdateService;
 
     @Autowired
-    ClienteDeleteService clienteDeleteService;
+    private ClienteDeleteService clienteDeleteService;
 
     @PostMapping("/")
     @Operation(summary = "Criar", description = "Metodo que cadastra um cliente", tags = "Cliente")
@@ -56,13 +56,13 @@ public class ClienteController {
         return ResponseEntity.status(HttpStatus.OK).body(clienteGetServices.getClienteId(id));
     }
 
-    @GetMapping("/clienteId/name/{name}")
+    @GetMapping("/cliente/name/{name}")
     @Operation(summary = "Buscar", description = "Metodo para buscar um cliente pelo name", tags = "Cliente")
     public ResponseEntity<?> getClienteName(@PathVariable("name") String name) {
         return ResponseEntity.status(HttpStatus.OK).body(clienteGetServices.getClienteName(name));
     }
 
-    @GetMapping("/clienteId/email/{email}")
+    @GetMapping("/cliente/email/{email}")
     @Operation(summary = "Buscar", description = "Metodo para buscar um cliente pelo email", tags = "Cliente")
     public ResponseEntity<?> getClienteEmail(@PathVariable("email") String email) {
         return ResponseEntity.status(HttpStatus.OK).body(clienteGetServices.getClienteEmail(email));

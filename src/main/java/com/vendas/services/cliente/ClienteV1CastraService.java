@@ -4,9 +4,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vendas.dto.ClientePostRequestDTO;
-import com.vendas.model.Cliente;
-import com.vendas.repository.ClienteRepository;
+import com.vendas.domain.dto.cliente.ClientePostRequestDTO;
+import com.vendas.domain.model.Cliente;
+import com.vendas.domain.repository.ClienteRepository;
 
 @Service
 public class ClienteV1CastraService implements ClienteCadastraService {

@@ -1,10 +1,12 @@
-package com.vendas.repository;
+package com.vendas.domain.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.vendas.model.Cliente;
-import java.util.Collection;
+
+import com.vendas.domain.model.Cliente;
+
+import java.util.List;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{   
-    public Collection<Cliente> findByName(String name);
+    public List<Cliente> findByName(String name);
     public Cliente findByEmail(String email);
 }

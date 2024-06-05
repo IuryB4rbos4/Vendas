@@ -31,14 +31,15 @@ public class Produto {
     private Long id;
 
     @JsonProperty("name")
-    @Column(name = "desc_name", length = 100)
+    @Column(name = "desc_name", length = 100, nullable = false)
     private String name;
 
     @JsonProperty("descricao")
-    @Column(name = "descricao", length = 250)
+    @Column(name = "desc_descricao", length = 250, nullable = false)
     private String descricao;
 
-    @JsonProperty("preco unitario")
+    @JsonProperty("preco")
+    @Column(name = "desc_preco", nullable = false)
     @Positive
     private BigDecimal preco;
 }

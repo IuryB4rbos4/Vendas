@@ -2,7 +2,7 @@ package com.vendas.services.cliente;
 
 import java.util.List;
 
-import com.vendas.dto.ClienteGetResponseDTO;
+import com.vendas.domain.dto.cliente.ClienteGetResponseDTO;
 
 public interface ClienteGetServices {
     public ClienteGetResponseDTO getClienteId(Long id);

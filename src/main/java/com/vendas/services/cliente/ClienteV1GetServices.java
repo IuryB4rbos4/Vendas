@@ -4,10 +4,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vendas.dto.ClienteGetResponseDTO;
+import com.vendas.domain.dto.cliente.ClienteGetResponseDTO;
+import com.vendas.domain.model.Cliente;
+import com.vendas.domain.repository.ClienteRepository;
 import com.vendas.exception.ClienteNaoExisteException;
-import com.vendas.model.Cliente;
-import com.vendas.repository.ClienteRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class ClienteV1GetServices implements ClienteGetServices {
 
     @Override
     public List<ClienteGetResponseDTO> getClienteName(String name) {
-        List<Cliente> currentCliente = (List<Cliente>) clienteRepository.findByName(name);
+        List<Cliente> currentCliente = clienteRepository.findByName(name);
         if(currentCliente.isEmpty()){
             throw new ClienteNaoExisteException();
         }

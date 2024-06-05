@@ -3,10 +3,10 @@ package com.vendas.services.cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vendas.dto.ClientePutRequestDTO;
+import com.vendas.domain.dto.cliente.ClientePutRequestDTO;
+import com.vendas.domain.model.Cliente;
+import com.vendas.domain.repository.ClienteRepository;
 import com.vendas.exception.ClienteNaoExisteException;
-import com.vendas.model.Cliente;
-import com.vendas.repository.ClienteRepository;
 
 @Service
 public class ClienteV1UpdateService implements ClienteUpdateService {
@@ -21,5 +21,7 @@ public class ClienteV1UpdateService implements ClienteUpdateService {
         cliente.setEmail(clientePutResquetDTO.getEmail());
         cliente.setName(clientePutResquetDTO.getName());
 
-        return clienteRepository.save(cliente);
+        clienteRepository.flush();
+
+        return cliente;
     }}
