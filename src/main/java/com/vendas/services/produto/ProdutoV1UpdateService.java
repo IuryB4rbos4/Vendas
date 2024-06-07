@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.vendas.domain.dto.produto.ProdutoPutRequestDTO;
 import com.vendas.domain.model.Produto;
 import com.vendas.domain.repository.ProdutoRepository;
-import com.vendas.exception.ProdutoNotExistException;
+import com.vendas.exception.ProdutoNaoExisteException;
 
 public class ProdutoV1UpdateService implements ProdutoUpdateService {
 
@@ -14,7 +14,7 @@ public class ProdutoV1UpdateService implements ProdutoUpdateService {
 
     @Override
     public Produto putProdutoId(Long id, ProdutoPutRequestDTO produtoPutRequestDTO) {
-        Produto produto = produtoRepository.findById(id).orElseThrow(ProdutoNotExistException::new);
+        Produto produto = produtoRepository.findById(id).orElseThrow(ProdutoNaoExisteException::new);
 
         produto.setName(produtoPutRequestDTO.getName());
         produto.setDescricao(produtoPutRequestDTO.getDescricao());

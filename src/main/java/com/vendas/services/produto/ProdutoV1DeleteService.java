@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vendas.domain.model.Produto;
 import com.vendas.domain.repository.ProdutoRepository;
-import com.vendas.exception.ProdutoNotExistException;
+import com.vendas.exception.ProdutoNaoExisteException;
 
 public class ProdutoV1DeleteService implements ProdutoDeleteService {
 
@@ -13,7 +13,7 @@ public class ProdutoV1DeleteService implements ProdutoDeleteService {
 
     @Override
     public void deleteProdutoId(Long id) {
-       Produto produto = produtoRepository.findById(id).orElseThrow(ProdutoNotExistException::new);
+       Produto produto = produtoRepository.findById(id).orElseThrow(ProdutoNaoExisteException::new);
        produtoRepository.delete(produto);
     }
     

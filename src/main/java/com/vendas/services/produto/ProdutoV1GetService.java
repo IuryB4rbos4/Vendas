@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.vendas.domain.dto.produto.ProdutoGetResponseDTO;
 import com.vendas.domain.model.Produto;
 import com.vendas.domain.repository.ProdutoRepository;
-import com.vendas.exception.ProdutoNotExistException;
+import com.vendas.exception.ProdutoNaoExisteException;
 
 public class ProdutoV1GetService implements ProdutoGetServices {
 
@@ -21,7 +21,7 @@ public class ProdutoV1GetService implements ProdutoGetServices {
 
     @Override
     public ProdutoGetResponseDTO getProdutoId(Long id) {
-        Produto produto = produtoRepository.findById(id).orElseThrow(ProdutoNotExistException::new);
+        Produto produto = produtoRepository.findById(id).orElseThrow(ProdutoNaoExisteException::new);
         return modelMapper.map(produto, ProdutoGetResponseDTO.class);
     }
 
@@ -29,7 +29,7 @@ public class ProdutoV1GetService implements ProdutoGetServices {
     public List<ProdutoGetResponseDTO> getProdutoName(String name) {
         List<Produto> produtos = produtoRepository.findByName(name);
         if(produtos.isEmpty()){
-            throw new ProdutoNotExistException();
+            throw new ProdutoNaoExisteException();
         }
         List<ProdutoGetResponseDTO> clienteGetResponseDTOs = new ArrayList();
         for(int i = 0; i < produtos.size(); i++){
