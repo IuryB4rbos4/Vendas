@@ -46,6 +46,17 @@ public class ErrorHandlingControllerAdvice {
         );
     }
 
+    @ExceptionHandler(VendasException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseBody
+    public CustomErrorType onVendasNotFoundException(VendasException vendasException){
+        return defaultCustomErrorTypeConstruct(
+            vendasException.getMessage()
+        );
+    }
+
+
+
     /*
     Daqui, abaixo, seguem os tratamentos dos erros oriundos das
     validações nos controladores: @Valid (jakarta.validation)
