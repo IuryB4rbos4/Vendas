@@ -5,12 +5,14 @@ import java.util.ArrayList;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.vendas.domain.dto.produto.ProdutoGetResponseDTO;
 import com.vendas.domain.model.Produto;
 import com.vendas.domain.repository.ProdutoRepository;
 import com.vendas.exception.ProdutoNaoExisteException;
 
+@Service
 public class ProdutoV1GetService implements ProdutoGetServices {
 
     @Autowired

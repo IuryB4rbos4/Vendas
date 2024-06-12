@@ -2,11 +2,13 @@ package com.vendas.services.produto;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.vendas.domain.dto.produto.ProdutoPostRequestDTO;
 import com.vendas.domain.model.Produto;
 import com.vendas.domain.repository.ProdutoRepository;
 
+@Service
 public class ProdutoV1CadastraService implements ProdutoCadastraService {
 
     @Autowired

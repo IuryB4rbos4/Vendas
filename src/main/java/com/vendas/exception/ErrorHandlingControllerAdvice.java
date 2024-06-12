@@ -46,14 +46,14 @@ public class ErrorHandlingControllerAdvice {
         );
     }
 
-    @ExceptionHandler(VendasException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ResponseBody
-    public CustomErrorType onVendasNotFoundException(VendasException vendasException){
-        return defaultCustomErrorTypeConstruct(
-            vendasException.getMessage()
-        );
-    }
+    // @ExceptionHandler(VendasException.class)
+    // @ResponseStatus(HttpStatus.NOT_FOUND)
+    // @ResponseBody
+    // public CustomErrorType onVendasNotFoundException(VendasException vendasException){
+    //     return defaultCustomErrorTypeConstruct(
+    //         vendasException.getMessage()
+    //     );
+    // }
 
 
 

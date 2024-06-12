@@ -1,5 +1,6 @@
 package com.vendas.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,16 +22,18 @@ import com.vendas.services.produto.ProdutoUpdateService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping(value = "v1/produto", produces = MediaType.APPLICATION_JSON_VALUE)
-@RequiredArgsConstructor
 public class ProdutoController {
 
+    @Autowired
     private ProdutoCadastraService produtoCadastraService;
+    @Autowired
     private ProdutoGetServices produtoGetServices;
+    @Autowired
     private ProdutoUpdateService produtoUpdateService;
+    @Autowired
     private ProdutoDeleteService produtoDeleteService;
 
 

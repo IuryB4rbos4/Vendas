@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.Set;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -20,11 +20,11 @@ import jakarta.validation.constraints.Positive;
 public class ItemPedidoPostRequestDTO {
     @JsonProperty("cliente")
     @NotNull
-    private Integer cliente;
+    private Long cliente;
     @JsonProperty("total")
     @Positive
     private BigDecimal total;
     @JsonProperty("itens")
     @NotNull
-    private Set<PedidoPostDTO> itens;
+    private List<PedidoPostDTO> itens;
 }

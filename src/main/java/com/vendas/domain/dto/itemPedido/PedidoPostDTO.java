@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class PedidoPostDTO {
     @JsonProperty("produto")
     @NotNull
-    private Integer produto;
+    private Long produto;
     @JsonProperty("quantidade")
     @NotNull
     private Integer quantidade;

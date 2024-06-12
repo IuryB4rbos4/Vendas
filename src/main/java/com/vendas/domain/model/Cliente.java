@@ -1,5 +1,5 @@
 package com.vendas.domain.model;
-import java.util.Set;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
@@ -29,7 +29,7 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @JsonProperty("Name")
+    @JsonProperty("name")
     @Column(nullable = false, name = "desc_name", length = 100)
     private String name;
 
@@ -43,9 +43,10 @@ public class Cliente {
 
     @OneToMany( mappedBy = "cliente", fetch = FetchType.LAZY )
     @JsonProperty("pedidos")
-    private Set<Pedido> pedidos;
+    private List<Pedido> pedidos;
 
     @JsonProperty("password")
+    @Column(nullable = false, name = "password")
     private String password;
     
 }

@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClientePutRequestDTO {
-    @JsonProperty("Name")
+    @JsonProperty("name")
     @NotBlank
     private String name;
 
