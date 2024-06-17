@@ -1,35 +1,39 @@
-package com.vendas.domain.dto.produto;
+package com.vendas.rest.dto.cliente;
+
+import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
-
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class ProdutoPostRequestDTO {
+@NoArgsConstructor
+public class ClientePostRequestDTO {
     
     @JsonProperty("name")
     @NotBlank
-    @NotNull
     private String name;
 
-    @JsonProperty("descricao")
+    @JsonProperty("email")
+    @NotBlank
+    private String email;
+    
+    @JsonProperty("cpf")
+    @NotBlank()
     @NotNull
-    private String descricao;
+    @Length(max = 11, min = 11)
+    private String cpf;
 
-    @JsonProperty("preco")
+    @JsonProperty("password")
+    @NotBlank
     @NotNull
-    @Positive
-    private BigDecimal preco;
+    private String password;
+    
 }

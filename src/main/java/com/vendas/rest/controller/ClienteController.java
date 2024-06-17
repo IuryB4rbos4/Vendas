@@ -1,4 +1,4 @@
-package com.vendas.controller;
+package com.vendas.rest.controller;
 
 import java.util.List;
 
@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vendas.domain.dto.cliente.ClienteGetResponseDTO;
-import com.vendas.domain.dto.cliente.ClientePostRequestDTO;
-import com.vendas.domain.dto.cliente.ClientePutRequestDTO;
+import com.vendas.rest.dto.cliente.ClienteGetResponseDTO;
+import com.vendas.rest.dto.cliente.ClientePostRequestDTO;
+import com.vendas.rest.dto.cliente.ClientePutRequestDTO;
 import com.vendas.services.cliente.ClienteCadastraService;
 import com.vendas.services.cliente.ClienteDeleteService;
 import com.vendas.services.cliente.ClienteGetServices;
@@ -56,15 +57,15 @@ public class ClienteController {
         return ResponseEntity.status(HttpStatus.OK).body(clienteGetServices.getClienteId(id));
     }
 
-    @GetMapping("/cliente/name/{name}")
+    @GetMapping("/name/{name}")
     @Operation(summary = "Buscar", description = "Metodo para buscar um cliente pelo name", tags = "Cliente")
     public ResponseEntity<?> getClienteName(@PathVariable("name") String name) {
         return ResponseEntity.status(HttpStatus.OK).body(clienteGetServices.getClienteName(name));
     }
 
-    @GetMapping("/cliente/email/{email}")
+    @GetMapping("/email/")
     @Operation(summary = "Buscar", description = "Metodo para buscar um cliente pelo email", tags = "Cliente")
-    public ResponseEntity<?> getClienteEmail(@PathVariable("email") String email) {
+    public ResponseEntity<?> getClienteEmail(@RequestParam("email") String email) {
         return ResponseEntity.status(HttpStatus.OK).body(clienteGetServices.getClienteEmail(email));
     }
 

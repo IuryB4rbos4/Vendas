@@ -1,7 +1,7 @@
 package com.vendas.services.cliente;
 
-import com.vendas.domain.dto.cliente.ClientePutRequestDTO;
 import com.vendas.domain.model.Cliente;
+import com.vendas.rest.dto.cliente.ClientePutRequestDTO;
 
 @FunctionalInterface
 public interface ClienteUpdateService {

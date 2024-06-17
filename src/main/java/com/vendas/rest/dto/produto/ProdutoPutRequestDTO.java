@@ -1,4 +1,4 @@
-package com.vendas.domain.dto.produto;
+package com.vendas.rest.dto.produto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

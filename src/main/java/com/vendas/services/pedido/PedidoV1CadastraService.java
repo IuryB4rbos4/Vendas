@@ -7,8 +7,6 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.vendas.domain.dto.itemPedido.ItemPedidoPostRequestDTO;
-import com.vendas.domain.dto.itemPedido.PedidoPostDTO;
 import com.vendas.domain.model.Cliente;
 import com.vendas.domain.model.ItemPedido;
 import com.vendas.domain.model.Pedido;
@@ -20,8 +18,8 @@ import com.vendas.domain.repository.ProdutoRepository;
 import com.vendas.exception.ClienteNaoExisteException;
 import com.vendas.exception.ItensVazioException;
 import com.vendas.exception.ProdutoNaoExisteException;
-
-
+import com.vendas.rest.dto.itemPedido.ItemPedidoPostRequestDTO;
+import com.vendas.rest.dto.itemPedido.PedidoPostDTO;
 
 import lombok.RequiredArgsConstructor;
 

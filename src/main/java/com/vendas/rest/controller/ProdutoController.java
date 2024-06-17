@@ -1,4 +1,4 @@
-package com.vendas.controller;
+package com.vendas.rest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vendas.domain.dto.produto.ProdutoPostRequestDTO;
-import com.vendas.domain.dto.produto.ProdutoPutRequestDTO;
+import com.vendas.rest.dto.produto.ProdutoPostRequestDTO;
+import com.vendas.rest.dto.produto.ProdutoPutRequestDTO;
 import com.vendas.services.produto.ProdutoCadastraService;
 import com.vendas.services.produto.ProdutoDeleteService;
 import com.vendas.services.produto.ProdutoGetServices;

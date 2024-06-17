@@ -1,7 +1,7 @@
 package com.vendas.services.pedido;
 
-import com.vendas.domain.dto.itemPedido.ItemPedidoPostRequestDTO;
 import com.vendas.domain.model.Pedido;
+import com.vendas.rest.dto.itemPedido.ItemPedidoPostRequestDTO;
 
 @FunctionalInterface
 public interface PedidoCadastraService {

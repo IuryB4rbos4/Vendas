@@ -4,10 +4,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vendas.domain.dto.cliente.ClienteGetResponseDTO;
 import com.vendas.domain.model.Cliente;
 import com.vendas.domain.repository.ClienteRepository;
 import com.vendas.exception.ClienteNaoExisteException;
+import com.vendas.rest.dto.cliente.ClienteGetResponseDTO;
 
 import java.util.ArrayList;
 import java.util.List;

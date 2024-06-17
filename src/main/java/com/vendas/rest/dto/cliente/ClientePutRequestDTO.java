@@ -1,4 +1,4 @@
-package com.vendas.domain.dto.cliente;
+package com.vendas.rest.dto.cliente;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

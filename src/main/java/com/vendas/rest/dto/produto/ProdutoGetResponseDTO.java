@@ -1,31 +1,29 @@
-package com.vendas.domain.dto.cliente;
+package com.vendas.rest.dto.produto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class ClienteGetResponseDTO {
+@AllArgsConstructor
+public class ProdutoGetResponseDTO {
 
     @JsonProperty("id")
-    @NotNull
     private Long id;
 
     @JsonProperty("name")
-    @NotBlank
     private String name;
 
-    @JsonProperty("email")
-    @NotBlank
-    private String email;
+    @JsonProperty("descricao")
+    private String descricao;
 
+    @JsonProperty("preco")
+    private BigDecimal preco;
 }
